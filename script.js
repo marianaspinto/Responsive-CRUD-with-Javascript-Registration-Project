@@ -56,3 +56,25 @@ function insertItem(item, index) {
     setItensBD()
     loadItens()
   }
+
+  function openModal(edit = false, index = 0) {
+    modal.classList.add('active')
+  
+    modal.onclick = e => {
+      if (e.target.className.indexOf('modal-container') !== -1) {
+        modal.classList.remove('active')
+      }
+    }
+  
+    if (edit) {
+      sNome.value = itens[index].nome
+      sFuncao.value = itens[index].funcao
+      sSalario.value = itens[index].salario
+      id = index
+    } else {
+      sNome.value = ''
+      sFuncao.value = ''
+      sSalario.value = ''
+    }
+    
+  }
