@@ -9,3 +9,20 @@ const btnSalvar = document.querySelector('.#btnSalvar')
 
 let itens 
 let id 
+
+// Função que vai pegar os itens do banco
+
+const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
+const setItensBD = () => localStotage.setItem('dbfunc', JSON.stringify(itens))
+
+function loadItens() {
+    itens = getItensBD()
+    tbody.innerHTML = ''
+    itens.forEach((item, index) => {
+        insertItem(item, index)
+    })
+}
+
+// Função que será execultada assim que a página for carregada
+
+loadItens()
